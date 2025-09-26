@@ -1,4 +1,41 @@
 
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            if (navMenu.classList.contains('hidden')) {
+                navMenu.classList.remove('hidden');
+                navMenu.classList.add('flex', 'flex-col', 'absolute', 'top-full', 'left-0', 'right-0', 'bg-slate-100', 'z-50', 'shadow-lg', 'p-4', 'gap-4');
+            } else {
+                navMenu.classList.add('hidden');
+                navMenu.classList.remove('flex', 'flex-col', 'absolute', 'top-full', 'left-0', 'right-0', 'bg-slate-100', 'z-50', 'shadow-lg', 'p-4', 'gap-4');
+            }
+        });
+
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = navMenu.contains(event.target);
+            const isClickOnMenuBtn = mobileMenuBtn.contains(event.target);
+            
+            if (!isClickInsideNav && !isClickOnMenuBtn && !navMenu.classList.contains('hidden')) {
+                navMenu.classList.add('hidden');
+                navMenu.classList.remove('flex', 'flex-col', 'absolute', 'top-full', 'left-0', 'right-0', 'bg-slate-100', 'z-50', 'shadow-lg', 'p-4', 'gap-4');
+            }
+        });
+
+        function adjustTextSizes() {
+            const screenWidth = window.innerWidth;
+            const links = document.querySelectorAll('a, p, button');
+            
+        }
+
+        window.addEventListener('resize', adjustTextSizes);
+        adjustTextSizes();
+
+
+
+
+
+
 // function arrayPlusArray(arr1, arr2) {
 //   let sum1 = arr1.reduce((a, b) => a + b, 0);
 //   let sum2 = arr2.reduce((a, b) => a + b, 0);
